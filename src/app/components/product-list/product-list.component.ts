@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../../models/product.model';
+import { Store } from '@ngrx/store';
+import { add } from '../../cart.actions';
 
 @Component({
   selector: 'app-product-list',
@@ -13,11 +15,11 @@ export class ProductListComponent implements OnInit {
     { id: 3, name: 'Product 3', price: 30 },
   ];
 
-  constructor() {}
+  constructor(private readonly store: Store) {}
 
   ngOnInit(): void {}
 
   addToCart(product: Product): void {
-    // Logic to add product to cart
+    this.store.dispatch(add({ product }));
   }
 }

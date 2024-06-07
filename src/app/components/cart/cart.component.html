@@ -4,5 +4,5 @@
     src="../../../assets/Shopping_Cart_Flat_Icon.svg"
     alt="cart-icon"
   />
-  <span class="item-count">0 </span>
+  <span class="item-count">{{ (products | async)?.length }} </span>
 </div>
